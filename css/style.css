@@ -121,7 +121,7 @@ a {
     header>img {
         margin-left: auto;
         margin-right: auto;
-        size: 100%;
+        resize: 100%;
     }
 
     .nav_links {
