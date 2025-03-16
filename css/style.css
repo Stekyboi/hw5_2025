@@ -1,22 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 @keyframes logo {
+
+    /*start size and opacity*/
     0% {
         width: 25px;
         opacity: 0;
     }
 
+    /*end size and opacity*/
     100% {
         width: 475px;
         opacity: 1;
     }
 }
 
-#logo{
-    animation-name:logo;
+/*animates the logo upon load for 5 seconds*/
+#logo {
+    animation-name: logo;
     animation-duration: 5s;
 }
 
+/*set body to poppins font, background image, background color*/
 body {
     font-family: 'Poppins', serif;
     background-color: #f1f1f1;
@@ -24,22 +29,26 @@ body {
 
 }
 
+/*set header as a flex container, center it and make it a column*/
 header {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
+/*set nav links ul to a flex container, same thing*/
 .nav_links {
     display: flex;
     flex-direction: column;
     justify-self: center;
 }
 
+/*set links color to blue so its always the same color*/
 a {
     color: blue;
 }
 
+/*set pricing class to a flex container, direction column, align and justify items to center em horizontally and vertically*/
 .pricing {
     display: flex;
     flex-direction: column;
@@ -47,6 +56,7 @@ a {
     justify-items: center;
 }
 
+/*set cards to have rounded top corners, size it as a border box to maintain proportions, set width because flex-basis only affects height when its a column, auto the height*/
 .card {
     border-radius: 50px 50px 0px 0px;
     box-sizing: border-box;
@@ -54,6 +64,7 @@ a {
     flex-basis: auto;
 }
 
+/*set the header for each card to match the rounded top corners, add padding, background color, and border*/
 .card>header {
     background: #288088;
     border: solid 2px #45ADAD;
@@ -62,12 +73,14 @@ a {
     border-radius: 50px 50px 0px 0px;
 }
 
+/*set gallery class as a flex container, have it wrap and center*/
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/*set images in the gallery to be 300px wide with a border and margin*/
 .gallery>img {
     border: solid 10px #50C7C7;
     margin: 10px;
@@ -75,6 +88,9 @@ a {
 }
 
 @media screen and (min-width: 900px) {
+
+    /*media query for larger screens*/
+    /*set header as a flex container, set direction to row, space-between to match example, center items vertically*/
     header {
         display: flex;
         flex-direction: row;
@@ -82,16 +98,19 @@ a {
         align-items: center;
     }
 
+    /*set the first child header of the body to be sticky*/
     body>header:first-child {
         position: sticky;
         top: 0;
     }
 
+    /*set navlinks class to flex container, direction row*/
     .nav_links {
         display: flex;
         flex-direction: row;
     }
 
+    /*set pricing class to flex container, row, align stuff horizontally and vertically*/
     .pricing {
         display: flex;
         flex-direction: row;
@@ -99,30 +118,38 @@ a {
         justify-content: center;
     }
 
+    /*sets starting width*/
     .card {
         flex-basis: 275px;
     }
 }
 
 @media (prefers-reduced-motion) {
+
+    /*gets rid of logo animation for reduced motion*/
     #logo {
         animation: none !important;
         transition: none !important;
     }
 }
 
-@media print{
-    body{
+@media print {
+
+    /*media query for print*/
+    /*standardize body text, color, background*/
+    body {
         font-family: Arial, Helvetica;
         background-color: #f1f1f1;
         background-image: none;
     }
 
+    /*center the header image (logo)*/
     header>img {
         margin-left: auto;
         margin-right: auto;
     }
 
+    /*flex container, row, space-around to match example, width 100% to span the whole way so the justify-content works*/
     .nav_links {
         display: flex;
         width: 100%;
@@ -130,6 +157,7 @@ a {
         justify-content: space-around;
     }
 
+    /*flex container, row, center stuff horizontally and make em line up at the bottoms*/
     .pricing {
         display: flex;
         flex-direction: row;
@@ -137,11 +165,13 @@ a {
         justify-content: center;
     }
 
+    /*set starting width, border*/
     .card {
         flex-basis: 325px;
         border: #45ADDD 2px solid;
     }
 
+    /*set card header border and background and all that other jazz*/
     .card>header {
         background: #288088;
         border: solid 2px #45ADAD;
@@ -150,14 +180,18 @@ a {
         border-radius: 50px 50px 0px 0px;
     }
 
-    .gallery, #gallery {
+    /*dont print the gallery*/
+    .gallery,
+    #gallery {
         display: none;
     }
 
+    /*add a thumbs up to the second list item in each card*/
     div.card>ul>li:nth-of-type(2):after {
         content: "\1F44D";
     }
 
+    /*move footer to next page to match example*/
     footer {
         break-before: page;
     }
